@@ -10,9 +10,9 @@
 
 <template name="list">
   <ul>
-    <li>Make a Meteor App</li>
-    <li>Go to the gym</li>
-    <li>Watch Warriors vs Thunder game</li>
+    {{#each items}}
+      <li>{{description}}</li>
+    {{/each}}
   </ul>
 </template>
 
