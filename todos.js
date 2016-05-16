@@ -4,6 +4,28 @@ if (Meteor.isClient) {
   Template.list.helpers({
     items: function() {
       return Items.find();
+    },
+    doneClass: function() {
+      if (this.done) {
+        return "done";
+      } else {
+        return "";
+      }
+    }
+  });
+
+  Template.controls.events({
+    'submit form': function(event) {
+      event.preventDefault();
+
+      var description = $(event.target).find('[id=newItem]').val();
+      Items.insert({description:description});
+    }
+  });
+
+  Template.list.events({
+    'click li': function() {
+      Items.update({_id:this._id},{$set:{done:!this.done}});
     }
   });
 }
