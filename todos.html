@@ -4,4 +4,21 @@
 
 <body>
   <h1>Do or Die!</h1>
+  {{> list }}
+  {{> controls }}
 </body>
+
+<template name="list">
+  <ul>
+    <li>Make a Meteor App</li>
+    <li>Go to the gym</li>
+    <li>Watch Warriors vs Thunder game</li>
+  </ul>
+</template>
+
+<template name="controls">
+  <form>
+    <input type="text" id="newItem" />
+    <input type="submit" id="add" value="Add" />
+  </form>
+</template>
